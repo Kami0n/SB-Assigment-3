@@ -1,0 +1,8 @@
+data/*
+__pycache__/
+
+*.onnx
+*.xml
+*.pt
+*.weights
+*.pyc

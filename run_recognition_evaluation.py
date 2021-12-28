@@ -35,6 +35,8 @@ class EvaluateAll:
     def run_evaluation(self):
         
         im_list = sorted(glob.glob(self.images_path + '/*.png', recursive=True))
+        im_list = [i.replace('\\', '/') for i in im_list] # windows backslash weirdness fix
+        
         iou_arr = []
         preprocess = Preprocess()
         eval = Evaluation()
@@ -47,6 +49,9 @@ class EvaluateAll:
         import feature_extractors.pix2pix.extractor as p2p_ext
         pix2pix = p2p_ext.Pix2Pix()
         
+        import feature_extractors.lbp.extractor as lbp_ext
+        lbp = lbp_ext.LBP()
+        
         lbp_features_arr = []
         plain_features_arr = []
         y = []
@@ -56,21 +61,28 @@ class EvaluateAll:
             # Read an image
             img = cv2.imread(im_name)
             
+            print('/'.join(im_name.split('/')[-2:]))
             y.append(cla_d['/'.join(im_name.split('/')[-2:])])
             
             # Apply some preprocessing here
             
-            # Run the feature extractors            
+            
+            # Run the feature extractors
             plain_features = pix2pix.extract(img)
             plain_features_arr.append(plain_features)
-            # lbp_features = lbp.extract(img)
-            # lbp_features_arr.append(lbp_features)
+            
+            lbp_features = lbp.extract(img)
+            lbp_features_arr.append(lbp_features)
             
         
         Y_plain = cdist(plain_features_arr, plain_features_arr, 'jensenshannon')
-        
         r1 = eval.compute_rank1(Y_plain, y)
-        print('Pix2Pix Rank-1[%]', r1)
+        print('Pix2Pix Rank-1 [%]', r1)
+        
+        Y_plain = cdist(lbp_features_arr, lbp_features_arr, 'jensenshannon')
+        r1 = eval.compute_rank1(Y_plain, y)
+        print('LBP Rank-1 [%]', r1)
+        
 
 if __name__ == '__main__':
     ev = EvaluateAll()

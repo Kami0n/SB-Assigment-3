@@ -2,7 +2,6 @@ import math
 import numpy as np
 
 class Evaluation:
-
 	def compute_rank1(self, Y, y):
 		classes = np.unique(sorted(y))
 		count_all = 0

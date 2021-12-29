@@ -8,23 +8,26 @@ class LBP:
 		self.radius = radius
 		self.eps = eps
 		self.resize=resize
-
+	
 	def extract(self, img):
 		img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		img = cv2.resize(img, (self.resize, self.resize))
-
+		
 		lbp = feature.local_binary_pattern(img, self.num_points, self.radius, method="uniform")
-	
+		
 		n_bins = int(lbp.max() + 1)
 		hist, _ = np.histogram(lbp, density=True, bins=n_bins, range=(0, n_bins))
 		
 		# TODO
+		
+		
+		
 		
 		return hist
 
 if __name__ == '__main__':
 	fname = sys.argv[1]
 	img = cv2.imread(fname)
-	extractor = Extractor()
+	extractor = LBP()
 	features = extractor.extract(img)
 	print(features)

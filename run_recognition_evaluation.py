@@ -38,10 +38,15 @@ class EvaluateAll:
         im_list = [i.replace('\\', '/') for i in im_list] # windows backslash weirdness fix
         
         iou_arr = []
-        preprocess = Preprocess()
+        
+        import preprocessing.preprocess as preproc
+        preprocObj = preproc.Preprocess()
+        
         eval = Evaluation()
         
         cla_d = self.get_annotations(self.annotations_path)
+        
+        
         
         # Change the following extractors, modify and add your own
         
@@ -66,6 +71,7 @@ class EvaluateAll:
             
             # Apply some preprocessing here
             
+            #img = preprocObj.histogram_equlization_rgb(img)
             
             # Run the feature extractors
             plain_features = pix2pix.extract(img)
@@ -75,13 +81,14 @@ class EvaluateAll:
             lbp_features_arr.append(lbp_features)
             
         
-        Y_plain = cdist(plain_features_arr, plain_features_arr, 'jensenshannon')
-        r1 = eval.compute_rank1(Y_plain, y)
-        print('Pix2Pix Rank-1 [%]', r1)
+        Y_plain_pix = cdist(plain_features_arr, plain_features_arr, 'jensenshannon') # jensenshannon
+        r1_pix = eval.compute_rank1(Y_plain_pix, y)
+        print('Pix2Pix Rank-1 [%] ', r1_pix)
         
-        Y_plain = cdist(lbp_features_arr, lbp_features_arr, 'jensenshannon')
-        r1 = eval.compute_rank1(Y_plain, y)
-        print('LBP Rank-1 [%]', r1)
+        Y_plain_LBP = cdist(lbp_features_arr, lbp_features_arr, 'jensenshannon')
+        r1_LBP = eval.compute_rank1(Y_plain_LBP, y)
+        print('LBP Rank-1 [%] ', r1_LBP)
+        
         
 
 if __name__ == '__main__':

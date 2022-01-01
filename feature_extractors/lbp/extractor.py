@@ -6,8 +6,8 @@ class LBP:
 	def __init__(self, num_points=8, radius=2, eps=1e-6, resize=100):
 		self.num_points = num_points * radius
 		self.radius = radius
+		self.resize = resize
 		self.eps = eps
-		self.resize=resize
 	
 	def extract(self, img):
 		img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -20,11 +20,8 @@ class LBP:
 		
 		# TODO
 		
-		
-		
-		
 		return hist
-
+	
 if __name__ == '__main__':
 	fname = sys.argv[1]
 	img = cv2.imread(fname)

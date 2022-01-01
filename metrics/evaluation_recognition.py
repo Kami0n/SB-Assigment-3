@@ -20,28 +20,29 @@ class Evaluation:
 				count_all += 1
 				if imin:
 					count_correct += 1
+		
+		print(count_correct)
 		return count_correct/count_all*100
-
 
 	# Add your own metrics here, such as rank5, (all ranks), CMC plot, ROC, ...
 
-		# def compute_rank5(self, Y, y):
-	# 	# First loop over classes in order to select the closest for each class.
-	# 	classes = np.unique(sorted(y))
+	# def compute_rank5(self, Y, y):
+	#	# First loop over classes in order to select the closest for each class.
+	#	classes = np.unique(sorted(y))
 		
-	# 	sentinel = 0
-	# 	for cla1 in classes:
-	# 		idx1 = y==cla1
-	# 		if (list(idx1).count(True)) <= 1:
-	# 			continue
-	# 		Y1 = Y[idx1==True, :]
+	#	sentinel = 0
+	#	for cla1 in classes:
+	#		idx1 = y==cla1
+	#		if (list(idx1).count(True)) <= 1:
+	#			continue
+	#		Y1 = Y[idx1==True, :]
 
-	# 		for cla2 in classes:
-	# 			# Select the closest that is higher than zero:
-	# 			idx2 = y==cla2
-	# 			if (list(idx2).count(True)) <= 1:
-	# 				continue
-	# 			Y2 = Y1[:, idx1==True]
-	# 			Y2[Y2==0] = math.inf
-	# 			min_val = np.min(np.array(Y2))
-	# 			# ...
+	#		for cla2 in classes:
+	#			# Select the closest that is higher than zero:
+	#			idx2 = y==cla2
+	#			if (list(idx2).count(True)) <= 1:
+	#				continue
+	#			Y2 = Y1[:, idx1==True]
+	#			Y2[Y2==0] = math.inf
+	#			min_val = np.min(np.array(Y2))
+	#			# ...

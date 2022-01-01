@@ -18,7 +18,9 @@ class LBP:
 		n_bins = int(lbp.max() + 1)
 		hist, _ = np.histogram(lbp, density=True, bins=n_bins, range=(0, n_bins))
 		
-		# TODO
+		# normalize the histogram
+		hist = hist.astype("float")
+		hist /= (hist.sum() + self.eps)
 		
 		return hist
 	

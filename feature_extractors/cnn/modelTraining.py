@@ -15,15 +15,7 @@ import glob
 
 from preprocessing.preprocess import Preprocess
 
-def get_annotations(annot_f):
-	d = {}
-	with open(annot_f) as f:
-		lines = f.readlines()
-		for line in lines:
-			(key, val) = line.split(',')
-			# keynum = int(self.clean_file_name(key))
-			d[key] = int(val)
-	return d
+from commonFunctions import get_annotations
 
 def modelArchitecture(IMG_WIDTH, IMG_HEIGHT): # Create the model
 	model = Sequential()

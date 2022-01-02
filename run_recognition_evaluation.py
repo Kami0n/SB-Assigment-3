@@ -10,6 +10,8 @@ from scipy.spatial.distance import cdist
 from preprocessing.preprocess import Preprocess
 from metrics.evaluation_recognition import Evaluation
 
+from commonFunctions import get_annotations
+
 class EvaluateAll:
 
 	def __init__(self):
@@ -21,26 +23,13 @@ class EvaluateAll:
 		self.images_path = config['images_path']
 		self.annotations_path = config['annotations_path']
 	
-	def clean_file_name(self, fname):
-		return fname.split('/')[1].split(' ')[0]
-	
-	def get_annotations(self, annot_f):
-		d = {}
-		with open(annot_f) as f:
-			lines = f.readlines()
-			for line in lines:
-				(key, val) = line.split(',')
-				# keynum = int(self.clean_file_name(key))
-				d[key] = int(val)
-		return d
-	
 	def run_evaluation(self):
 		im_list = sorted(glob.glob(self.images_path + '/*.png', recursive=True))
 		im_list = [i.replace('\\', '/') for i in im_list] # windows backslash weirdness fix
 		#iou_arr = []
 		preprocObj = Preprocess()
 		eval = Evaluation()
-		cla_d = self.get_annotations(self.annotations_path)
+		cla_d = get_annotations(self.annotations_path)
 		
 		# Change the following extractors, modify and add your own
 		# Pixel-wise comparison:

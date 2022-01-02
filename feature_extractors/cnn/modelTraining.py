@@ -25,28 +25,25 @@ def get_annotations(annot_f):
 			d[key] = int(val)
 	return d
 
-def modelArchitecture(IMG_WIDTH, IMG_HEIGHT):
-	# Create the model
+def modelArchitecture(IMG_WIDTH, IMG_HEIGHT): # Create the model
 	model = Sequential()
-
-	model.add(Conv2D(32, kernel_size=4, strides=1,activation='relu', input_shape=(IMG_WIDTH, IMG_HEIGHT, 1)))
-	model.add(Conv2D(32, kernel_size=4, strides=2,activation='relu'))
+	# 
+	model.add(Conv2D(128, kernel_size=4, strides=1,activation='relu', input_shape=(IMG_WIDTH, IMG_HEIGHT, 1)))
+	model.add(Conv2D(128, kernel_size=4, strides=2,activation='relu'))
 	model.add(MaxPooling2D(pool_size=2))
-	model.add(Conv2D(64, kernel_size=4, strides=1,activation='relu'))
+	model.add(Conv2D(256, kernel_size=4, strides=1,activation='relu'))
 	model.add(MaxPooling2D(pool_size=2))
-	model.summary()
-
+	# 
 	model.add(Flatten())
-	model.add(Dense(32, activation='relu'))
-	model.add(Dropout(0.5))
+	model.add(Dense(128, activation='relu'))
+	model.add(Dropout(0.2))
 	model.add(Dense(101, activation='softmax'))
-	model.summary()
-
-	# Compile the model
-	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+	#model.summary()
+	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy']) # Compile the model
 	return model
 
 def main():
+	resize = 100
 	with open('config_recognition.json') as config_file:
 		config = json.load(config_file)
 	images_path = config['train_images_path']
@@ -58,8 +55,8 @@ def main():
 	cla_d = get_annotations(annotations_path)
 	
 	# small size images (not more than 200 * 200)
-	IMG_WIDTH = 100
-	IMG_HEIGHT = 100
+	IMG_WIDTH = resize
+	IMG_HEIGHT = resize
 	training_data = []
 
 	print("Training Data")
@@ -91,7 +88,7 @@ def main():
 	
 	model = modelArchitecture(IMG_WIDTH, IMG_HEIGHT)
 	# Train the model
-	model.fit(X_train, to_categorical(Y_train), batch_size=32, epochs=200)
+	model.fit(X_train, to_categorical(Y_train), batch_size=32, epochs=50)
 	# increase the epochs or decrease the batch size according to classes
 	model.save('model_opt.h5')
 

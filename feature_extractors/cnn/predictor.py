@@ -1,11 +1,8 @@
-import cv2, sys
-from skimage import feature
+import cv2
 import numpy as np
 
 import tensorflow as tf
 from tensorflow.keras import models
-from tensorflow.keras.layers import Dense, Dropout, Activation, Flatten, Conv2D, MaxPooling2D
-from tensorflow.keras.utils import to_categorical
 
 class CNN:
 	def __init__(self, resize=100):

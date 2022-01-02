@@ -6,13 +6,17 @@ class Evaluation:
 		classes = np.unique(sorted(y))
 		count_all = 0
 		count_correct = 0
-		for cla1 in classes:
-			idx1 = y==cla1
+		
+		for cla1 in classes: # gre skozi vse razrede, ki so v annotations
+			idx1 = y==cla1 # nastavi true v tabeli vse primere, ki so ta razred
+			
+			# Compute only for cases where there is more than one sample:
 			if (list(idx1).count(True)) <= 1:
 				continue
-			# Compute only for cases where there is more than one sample:
+			
 			Y1 = Y[idx1==True, :]
 			Y1[Y1==0] = math.inf
+			
 			for y1 in Y1:
 				s = np.argsort(y1)
 				smin = s[0]
@@ -21,11 +25,18 @@ class Evaluation:
 				if imin:
 					count_correct += 1
 		
-		print(count_correct)
 		return count_correct/count_all*100
-
+	
 	# Add your own metrics here, such as rank5, (all ranks), CMC plot, ROC, ...
-
+	
+	def computeCorrectClasses(self, predY, trueY):
+		correct = 0
+		for indx, item in enumerate(predY):
+			if(trueY[indx] == item):
+				correct += 1
+		percent = round((correct/len(predY))*100, 2)
+		return percent
+	
 	# def compute_rank5(self, Y, y):
 	#	# First loop over classes in order to select the closest for each class.
 	#	classes = np.unique(sorted(y))

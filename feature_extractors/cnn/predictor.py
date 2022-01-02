@@ -16,8 +16,8 @@ class CNN:
 		
 		prediction = self.model.predict(X_predict)
 		
-		max_class = np.argmax(prediction[0]) 
-		return max_class
+		best_class = np.argmax(prediction[0]) 
+		return prediction, best_class
 
 if __name__ == '__main__':
 	cnn_predicotor = CNN()

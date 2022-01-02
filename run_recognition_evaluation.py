@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+np.set_printoptions(suppress=True)
 import glob
 import os
 import json
@@ -59,7 +60,9 @@ class EvaluateAll:
 		lbp_features_arr = []
 		lbp_scores_arr = []
 		lbp_classes_arr = []
-		cnn_classes_arr = []
+		
+		class_array = []
+		scores_array = []
 		y = [] # real classes, real identity class
 		
 		for im_name in im_list:
@@ -82,15 +85,23 @@ class EvaluateAll:
 			#lbp_scores_arr.append(lbp_scores)
 			#lbp_classes_arr.append(best_class)
 			
-			cnn_result = cnn.predict(img)
-			cnn_classes_arr.append(cnn_result)
+			scores, best_class = cnn.predict(img)
+			class_array.append(best_class)
+			scores_array.append(scores)
 			
+		
+		percent = eval.computeCorrectClasses(class_array,y)
+		print('Percent [%] ', percent)
+		
+		#scores_array = np.array(scores_array)
+		#r1 = eval.compute_rank1(scores_array, y)
+		#print('Rank-1 [%] ', r1)
+		
+		
+		
 		#Y_plain_pix = cdist(plain_features_arr, plain_features_arr, 'jensenshannon')
 		#r1_pix = eval.compute_rank1(Y_plain_pix, y)
 		#print('Pix2Pix Rank-1 [%] ', r1_pix)
-		
-		percent = eval.computeCorrectClasses(cnn_classes_arr,y)
-		print('Percent [%] ', percent)
 		
 		#lbp_scores_arr = np.array(lbp_scores_arr)
 		#r1_LBP = eval.compute_rank1(lbp_scores_arr, y)

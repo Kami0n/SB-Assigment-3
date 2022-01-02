@@ -50,11 +50,16 @@ class EvaluateAll:
 		import feature_extractors.lbp.extractor as lbp_ext
 		lbp = lbp_ext.LBP()
 		
+		# CNN
+		import feature_extractors.cnn.predictor as cnn_pred
+		cnn = cnn_pred.CNN()
+		
 		plain_features_arr = []
 		
 		lbp_features_arr = []
 		lbp_scores_arr = []
 		lbp_classes_arr = []
+		cnn_classes_arr = []
 		y = [] # real classes, real identity class
 		
 		for im_name in im_list:
@@ -73,20 +78,23 @@ class EvaluateAll:
 			#lbp_features = lbp.extract(img)
 			#lbp_features_arr.append(lbp_features)
 			
-			lbp_scores, best_class = lbp.predict(img)
-			lbp_scores_arr.append(lbp_scores)
-			lbp_classes_arr.append(best_class)
+			#lbp_scores, best_class = lbp.predict(img)
+			#lbp_scores_arr.append(lbp_scores)
+			#lbp_classes_arr.append(best_class)
+			
+			cnn_result = cnn.predict(img)
+			cnn_classes_arr.append(cnn_result)
 			
 		#Y_plain_pix = cdist(plain_features_arr, plain_features_arr, 'jensenshannon')
 		#r1_pix = eval.compute_rank1(Y_plain_pix, y)
 		#print('Pix2Pix Rank-1 [%] ', r1_pix)
 		
-		percent = eval.computeCorrectClasses(lbp_classes_arr,y)
-		print('LBP percent [%] ', percent)
+		percent = eval.computeCorrectClasses(cnn_classes_arr,y)
+		print('Percent [%] ', percent)
 		
-		lbp_scores_arr = np.array(lbp_scores_arr)
-		r1_LBP = eval.compute_rank1(lbp_scores_arr, y)
-		print('LBP Rank-1 [%] ', r1_LBP)
+		#lbp_scores_arr = np.array(lbp_scores_arr)
+		#r1_LBP = eval.compute_rank1(lbp_scores_arr, y)
+		#print('LBP Rank-1 [%] ', r1_LBP)
 		
 
 if __name__ == '__main__':

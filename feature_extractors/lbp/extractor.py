@@ -21,11 +21,11 @@ class LBP:
 		#cv2.waitKey(0)
 		
 		n_bins = int(lbp.max() + 1)
-		#hist, _ = np.histogram(lbp.ravel(), density=True, bins=n_bins, range=(0, n_bins))
-		hist, _ = np.histogram(lbp.ravel(), bins=np.arange(0, self.num_points + 3), range=(0, self.num_points + 2)) # density=True, 
+		hist, _ = np.histogram(lbp.ravel(), density=True, bins=n_bins, range=(0, n_bins))
+		#hist, _ = np.histogram(lbp.ravel(), bins=np.arange(0, self.num_points + 3), range=(0, self.num_points + 2)) # density=True, 
 		
-		hist = hist.astype("float")
-		hist /= (hist.sum() + self.eps)
+		#hist = hist.astype("float")
+		#hist /= (hist.sum() + self.eps)
 		return hist
 		#return lbp.ravel()
 	

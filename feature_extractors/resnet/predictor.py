@@ -7,7 +7,7 @@ from tensorflow.keras import models
 class CNN:
 	def __init__(self, resize=100):
 		self.resize=resize
-		self.model = models.load_model('model_opt.h5') #
+		self.model = models.load_model('model_opt_augmented.h5') #
 
 	def predict(self, img):
 		img_array = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)

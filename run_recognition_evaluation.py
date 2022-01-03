@@ -31,6 +31,7 @@ class EvaluateAll:
 		cla_d = get_annotations(self.annotations_path)
 		y = [] # real classes, real identity class
 		
+		# False True
 		pix = False
 		lbpShow = False
 		cnn = True
@@ -77,7 +78,7 @@ class EvaluateAll:
 			if cnn:
 				scores, best_class = cnn.predict(img)
 				class_array.append(best_class)
-				scores_array.append(scores)
+				scores_array.append(np.array(scores).reshape(1,-1))
 		
 		# calculate the distance between images
 		if pix:
@@ -87,12 +88,22 @@ class EvaluateAll:
 		
 		if lbpShow:
 			Y_LBP = cdist(lbp_features_arr, lbp_features_arr, 'jensenshannon')
+			print(Y_LBP)
 			r1_LBP = eval.compute_rank1(Y_LBP, y)
 			print('\nLBP Rank-1 [%] ', r1_LBP)
 		
 		if cnn:
-			percent = eval.computeCorrectClasses(class_array,y)
-			print('Percent [%] ', percent)
+			#percent = eval.computeCorrectClasses(class_array,y)
+			#print('\nCNN Percent [%] ', percent)
+			
+			r1_CNN = eval.compute_rank1_accuracy(scores_array, y)
+			print('\nCNN Rank-1 [%] ', r1_CNN)
+			
+			r5_CNN = eval.compute_rank5_accuracy(scores_array, y)
+			print('\nCNN Rank-5 [%] ', r5_CNN)
+			
+			eval.plotCMC(scores_array, y)
+			
 
 if __name__ == '__main__':
 	ev = EvaluateAll()

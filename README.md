@@ -21,11 +21,14 @@ In this assigment we will be learning about last two steps in biometric recognit
 Trained models:
 | Model  | Rank-1 | Rank-5 |
 | ------------- | ------------- | ------------- |
-| Pix2Pix | 6,41 % | - % |
-| LBP | 4,27 % | - % |
+| Pix2Pix | 6,41 % | / |
+| LBP | 4,27 % | / |
 | CNN model 1 | 10,0 % | 24,0 % |
 | CNN model 2 with augmented images | 26,8 % | 46,4 % |
 
+
+![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_1_CMC.png?raw=true)
+![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_2_augmented_CMC.png?raw=true)
 
 
 

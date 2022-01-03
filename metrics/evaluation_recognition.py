@@ -69,6 +69,8 @@ class Evaluation:
 		plt.ylabel('Recognition Rate')
 		plt.xlabel('Rank')
 		plt.margins(0)
+		plt.ylim(ymin=0, ymax=1)
+		plt.yticks(np.arange(0, 1.1, 0.1))
 		plt.show()
 	
 	def plotROC(self, x):

@@ -9,11 +9,9 @@ from scipy.spatial.distance import cdist
 
 from preprocessing.preprocess import Preprocess
 from metrics.evaluation_recognition import Evaluation
-
 from commonFunctions import get_annotations
 
 class EvaluateAll:
-
 	def __init__(self):
 		os.chdir(os.path.dirname(os.path.realpath(__file__)))
 		
@@ -26,6 +24,7 @@ class EvaluateAll:
 	def run_evaluation(self):
 		im_list = sorted(glob.glob(self.images_path + '/*.png', recursive=True))
 		im_list = [i.replace('\\', '/') for i in im_list] # windows backslash weirdness fix
+		
 		preprocObj = Preprocess()
 		eval = Evaluation()
 		cla_d = get_annotations(self.annotations_path)
@@ -52,7 +51,7 @@ class EvaluateAll:
 			# model_1
 			# model_2_augmented
 			# model_3_augmented
-			cnn = cnn_pred.CNN(predictor='model_1.h5')
+			cnn = cnn_pred.CNN(predictor='model_3_augmented.h5')
 		
 		class_array = []
 		scores_array = []
@@ -61,6 +60,10 @@ class EvaluateAll:
 			# Read an image
 			img = cv2.imread(im_name)
 			print('/'.join(im_name.split('/')[-2:]))
+			
+			if('_' in im_name):
+				im_name = im_name[:-6]+im_name[-4:]
+			
 			y.append(cla_d['/'.join(im_name.split('/')[-2:])])
 			
 			# Apply some preprocessing here

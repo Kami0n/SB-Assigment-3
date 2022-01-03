@@ -24,7 +24,7 @@ In this assigment we will be learning about last two steps in biometric recognit
 5. Tested on test images that I extracted with my own extractor.
 
 ### Results:
-Trained models:
+#### Results on perfectly_detected_ears dataset:
 | Model  | Rank-1 [%] | Rank-5 [%] | AUC [%] |
 | ------------- | ------------- | ------------- | ------------- |
 | Pix2Pix | 6,41 | / | / |
@@ -33,7 +33,19 @@ Trained models:
 | CNN model 2 with augmented images | 26,8 | 46,4 | / |
 | CNN model 3 with more augmented images | 32,4 | 54,8 | / |
 
-![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/output.png?raw=true)
+![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/graph_perfectly_detected_ears.png?raw=true)
+
+
+#### Results on my_detected_ears dataset:
+| Model  | Rank-1 [%] | Rank-5 [%] | AUC [%] |
+| ------------- | ------------- | ------------- | ------------- |
+| Pix2Pix | 6,41 | / | / |
+| LBP | 4,27 | / | / |
+| CNN model 1 | 6,98 | 21,26 | / |
+| CNN model 2 with augmented images | 17,28 | 33,22 | / |
+| CNN model 3 with more augmented images | 20,27 | 40,53 | / |
+
+![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/graph_my_detected_ears.png?raw=true)
 
 
 <br /><br /><br /><br /><br /><br />

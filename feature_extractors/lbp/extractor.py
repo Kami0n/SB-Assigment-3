@@ -4,14 +4,12 @@ import numpy as np
 import pandas as pd
 
 class LBP:
-	def __init__(self, num_points=10, radius=8, eps=1e-6, resize=100):
+	def __init__(self, num_points=8, radius=2, eps=1e-6, resize=100):
 		self.num_points = num_points * radius
 		self.radius = radius
 		self.resize = resize
 		self.eps = eps
-		
-		# 'imagePath','class','histogram'
-		self.referenceDataDf = pd.read_pickle('data/perfectly_detected_ears/pickle/reference_hist.pkl')
+		#self.referenceDataDf = pd.read_pickle('data/perfectly_detected_ears/pickle/reference_hist.pkl')# 'imagePath','class','histogram'
 	
 	def extract(self, img):
 		img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -22,8 +20,8 @@ class LBP:
 		n_bins = int(lbp.max() + 1)
 		hist, _ = np.histogram(lbp, density=True, bins=n_bins, range=(0, n_bins))
 		
-		hist = hist.astype("float")
-		hist /= (hist.sum() + self.eps)
+		#hist = hist.astype("float")
+		#hist /= (hist.sum() + self.eps)
 		
 		#cv2.imshow("image", img)
 		#cv2.waitKey(0)

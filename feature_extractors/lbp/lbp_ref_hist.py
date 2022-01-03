@@ -1,11 +1,10 @@
+import sys
+sys.path.append(sys.path[0]+'\\..\\..')
+
 import cv2
 import glob
 import json
 import pandas as pd
-
-import sys
-sys.path.append(sys.path[0]+'\\..\\..')
-
 
 import feature_extractors.lbp.extractor as lbp_ext
 from preprocessing.preprocess import Preprocess

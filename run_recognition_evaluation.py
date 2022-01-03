@@ -41,8 +41,8 @@ class EvaluateAll:
 		lbp = lbp_ext.LBP()
 		
 		# CNN
-		import feature_extractors.cnn.predictor as cnn_pred
-		cnn = cnn_pred.CNN()
+		#import feature_extractors.cnn.predictor as cnn_pred
+		#cnn = cnn_pred.CNN()
 		
 		plain_features_arr = []
 		
@@ -63,15 +63,15 @@ class EvaluateAll:
 			# Apply some preprocessing here
 			#img = preprocObj.histogram_equlization_rgb(img)
 			
-			
 			# Run the feature extractors
 			plain_features = pix2pix.extract(img)
 			plain_features_arr.append(plain_features)
 			
 			lbp_features = lbp.extract(img)
 			lbp_features_arr.append(lbp_features)
-			lbp_scores, best_class = lbp.predict(img)
-			lbp_scores_arr.append(lbp_scores)
+			
+			#lbp_scores, best_class = lbp.predict(img)
+			#lbp_scores_arr.append(lbp_scores)
 			#lbp_classes_arr.append(best_class)
 			
 			
@@ -87,9 +87,13 @@ class EvaluateAll:
 		r1_pix = eval.compute_rank1(Y_plain_pix, y)
 		print('Pix2Pix Rank-1 [%] ', r1_pix)
 		
-		lbp_scores_arr = np.array(lbp_scores_arr)
-		r1_LBP = eval.compute_rank1(lbp_scores_arr, y)
+		
+		Y_LBP = cdist(lbp_features_arr, lbp_features_arr, 'jensenshannon')
+		r1_LBP = eval.compute_rank1(Y_LBP, y)
 		print('LBP Rank-1 [%] ', r1_LBP)
+		
+		
+		
 		
 
 if __name__ == '__main__':

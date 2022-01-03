@@ -49,7 +49,10 @@ class EvaluateAll:
 		
 		if cnn: # CNN
 			import feature_extractors.cnn.predictor as cnn_pred
-			cnn = cnn_pred.CNN()
+			# model_1
+			# model_2_augmented
+			# model_3_augmented
+			cnn = cnn_pred.CNN(predictor='model_1.h5')
 		
 		class_array = []
 		scores_array = []

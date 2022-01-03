@@ -33,16 +33,7 @@ Trained models:
 | CNN model 2 with augmented images | 26,8 | 46,4 | / |
 | CNN model 3 with more augmented images | 32,4 | 54,8 | / |
 
-CNN model 1:
-![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_1_CMC.png?raw=true)
-
-CNN model 2 with augmented images:
-![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_2_augmented_CMC.png?raw=true)
-
-CNN model 3 with more augmented images:
-![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_3_augmented_CMC.png?raw=true)
-
-
+![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/output.png?raw=true)
 
 
 <br /><br /><br /><br /><br /><br />

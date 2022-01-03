@@ -62,6 +62,9 @@ class Evaluation:
 		ranks = self.compute_rankAll_accuracy(scores_array, y)
 		ranks.insert(0,0) # first number is zero
 		ranks = np.array(ranks)/100
+		
+		print(ranks)
+		
 		import matplotlib.pyplot as plt
 		plt.plot(ranks)
 		plt.ylabel('Recognition Rate')

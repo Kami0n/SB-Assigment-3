@@ -5,9 +5,9 @@ import tensorflow as tf
 from tensorflow.keras import models
 
 class CNN:
-	def __init__(self, resize=100):
+	def __init__(self, resize=100, predictor='model_3_augmented.h5'):
 		self.resize=resize
-		self.model = models.load_model('model_3_augmented.h5')
+		self.model = models.load_model(predictor)
 		# model_1
 		# model_2_augmented
 		# model_3_augmented

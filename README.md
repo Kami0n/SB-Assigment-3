@@ -26,8 +26,10 @@ Trained models:
 | CNN model 1 | 10,0 % | 24,0 % |
 | CNN model 2 with augmented images | 26,8 % | 46,4 % |
 
-
+CNN model 1:
 ![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_1_CMC.png?raw=true)
+
+CNN model 2 with augmented images:
 ![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_2_augmented_CMC.png?raw=true)
 
 

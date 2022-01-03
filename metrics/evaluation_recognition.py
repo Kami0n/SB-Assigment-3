@@ -70,7 +70,7 @@ class Evaluation:
 		plt.ylim(ymin=0, ymax=1)
 		plt.yticks(np.arange(0, 1.1, 0.1))
 		plt.xscale('log')
-		plt.xlim(xmin=0, xmax=100)
+		plt.xlim(xmax=100)
 		plt.grid(True)
 		plt.show()
 	

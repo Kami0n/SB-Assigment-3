@@ -84,13 +84,12 @@ class EvaluateAll:
 		if pix:
 			Y_plain_pix = cdist(plain_features_arr, plain_features_arr, 'jensenshannon')
 			r1_pix = eval.compute_rank1(Y_plain_pix, y)
-			print('\nPix2Pix Rank-1 [%] ', r1_pix)
+			print('\nPix2Pix Rank-1 [%] ', round(r1_pix,2))
 		
 		if lbpShow:
 			Y_LBP = cdist(lbp_features_arr, lbp_features_arr, 'jensenshannon')
-			print(Y_LBP)
 			r1_LBP = eval.compute_rank1(Y_LBP, y)
-			print('\nLBP Rank-1 [%] ', r1_LBP)
+			print('\nLBP Rank-1 [%] ', round(r1_LBP,2))
 		
 		if cnn:
 			#percent = eval.computeCorrectClasses(class_array,y)

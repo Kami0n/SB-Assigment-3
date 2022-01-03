@@ -8,10 +8,12 @@ In this assigment we will be learning about last two steps in biometric recognit
 
 ## What did I do?
 1. Tested LBP feature extraction without success. Can not get beter results (~4 %)  than Pix2Pix (~6 %) 
+<br />
 
 2. Trained my own CNN on default training set (Model 1).
 3. Augmented data.
 4. Trained my own CNN on augmented training set (Model 2).
+<br />
 
 5. Tested on test images that I extracted with my own extractor.
 
@@ -19,19 +21,16 @@ In this assigment we will be learning about last two steps in biometric recognit
 Trained models:
 | Model  | Rank-1 | Rank-5 |
 | ------------- | ------------- | ------------- |
-| CNN model 1 | 10.0 % | 24.0 % |
-| CNN model 2 with augmented images | 26.8 % | 46.4 % |
+| Pix2Pix | 6,41 % | - % |
+| LBP | 4,27 % | - % |
+| CNN model 1 | 10,0 % | 24,0 % |
+| CNN model 2 with augmented images | 26,8 % | 46,4 % |
 
 
 
 
 
-<br />
-<br />
-<br />
-<br />
-<br />
-
+<br /><br /><br /><br /><br /><br />
 
 ### Notes:
 Biometric identification involves comparing every record in the testing set against every other record in the testing set.

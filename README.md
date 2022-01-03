@@ -16,7 +16,8 @@ In this assigment we will be learning about last two steps in biometric recognit
     - Gammma adjustment (0,5 and 1,5) (MORE)
     - Horizontal flipping
     - Blurring with Gaussian filters (filter sizes 3, 5, 9, 13, 21)  (MORE)
-    - Rotations up to 35
+    - Rotations from -35° to 35°
+    Together this brings 15750 samples (750 originals and 21 images).
 4. Trained my own CNN on augmented training set (Model 2).
 <br />
 

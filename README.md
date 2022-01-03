@@ -7,9 +7,13 @@ In this assigment we will be learning about last two steps in biometric recognit
 
 
 ## What did I do?
+Tested LBP feature extraction without success. Can not get beter results (~4 %)  than Pix2Pix (~6 %) 
 
+Trained my own CNN on default training set (Model 1).
+Augmented data.
+Trained my own CNN on augmented training set (Model 2).
 
-
+Tested on test images that I extracted with my own extractor.
 
 ### Results:
 Trained models:

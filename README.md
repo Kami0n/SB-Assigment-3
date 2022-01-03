@@ -39,8 +39,8 @@ In this assigment we will be learning about last two steps in biometric recognit
 #### Results on my_detected_ears dataset:
 | Model  | Rank-1 [%] | Rank-5 [%] | AUC [%] |
 | ------------- | ------------- | ------------- | ------------- |
-| Pix2Pix | 6,41 | / | / |
-| LBP | 4,27 | / | / |
+| Pix2Pix | 6,97 | / | / |
+| LBP | 3,14 | / | / |
 | CNN model 1 | 6,98 | 21,26 | / |
 | CNN model 2 with augmented images | 17,28 | 33,22 | / |
 | CNN model 3 with more augmented images | 20,27 | 40,53 | / |

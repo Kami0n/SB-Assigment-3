@@ -12,3 +12,15 @@ In this assigment we will be learning about last two steps in biometric recognit
 
 
 ### Results:
+
+
+
+
+### Notes:
+Biometric identification involves comparing every record in the testing set against every other record in the testing set.
+
+Identification rate is defined as the rate at which enrolled subjects are successfully identified as the correct individual,
+where rank-k identification rate is the rate at which the correct individual is found within the top k matches.
+Hence, the rank-1 identification rate is the rate at which the correct individual has the highest match score.
+
+The cumulative match characteristic (CMC) plots identification rate by rank, for all ranks, and the areaunder-curve of the CMC, provides a metric by which to compare the accuracy achieved by CMC curves, where 100% AUC indicates perfect accuracy.

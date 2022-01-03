@@ -11,14 +11,16 @@ In this assigment we will be learning about last two steps in biometric recognit
 <br />
 
 2. Trained my own CNN on default training set (Model 1).
-3. Augmented data. Augmentations:
+3. Coded metrics rank1_accuracy, rank5_accuracy, plotCMC (& rankAll_accuracy).
+4. Augmented data. Augmentations:
     - Brightness
     - Gammma adjustment (0,5 and 1,5) (MORE)
     - Horizontal flipping
     - Blurring with Gaussian filters (filter sizes 3, 5, 9, 13, 21)  (MORE)
     - Rotations from -35° to 35°
 Together this brings 15750 samples (750 originals and 21 images).
-4. Trained my own CNN on augmented training set (Model 2).
+5. Trained my own CNN on augmented training set (Model 2).
+6. Trained my own CNN on more augmented training set (Model 3).
 <br />
 
 5. Tested on test images that I extracted with my own extractor.

@@ -19,18 +19,15 @@ from commonFunctions import get_annotations
 
 def modelArchitecture(IMG_WIDTH, IMG_HEIGHT): # Create the model
 	model = Sequential()
-	# 
 	model.add(Conv2D(64, kernel_size=4, strides=1,activation='relu', input_shape=(IMG_WIDTH, IMG_HEIGHT, 1)))
 	model.add(Conv2D(64, kernel_size=4, strides=2,activation='relu'))
 	model.add(MaxPooling2D(pool_size=2))
 	model.add(Conv2D(128, kernel_size=4, strides=1,activation='relu'))
 	model.add(MaxPooling2D(pool_size=2))
-	# 
 	model.add(Flatten())
 	model.add(Dense(128, activation='relu'))
 	model.add(Dropout(0.5))
 	model.add(Dense(101, activation='softmax'))
-	#model.summary()
 	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy']) # Compile the model
 	return model
 
@@ -74,7 +71,7 @@ def main():
 	# Train the model
 	model.fit(X_train, to_categorical(Y_train), batch_size=32, epochs=100)
 	# increase the epochs or decrease the batch size according to classes
-	model.save('model_opt_augmented.h5')
+	model.save('model_3_augmented.h5')
 
 if __name__ == '__main__':
 	main()

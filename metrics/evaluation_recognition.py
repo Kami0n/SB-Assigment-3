@@ -54,13 +54,13 @@ class Evaluation:
 			for i in range(len(Y)):
 				if y[i] in np.argsort(Y[i][0])[::-1][:rankLevel]:
 					scoreaa+=1
-			#print(rankLevel, scoreaa)
 			rank = scoreaa/float(len(y))
 			ranks.append(round(rank*100, 2))
 		return ranks
 	
 	def plotCMC(self, scores_array, y):
 		ranks = self.compute_rankAll_accuracy(scores_array, y)
+		ranks.insert(0,0) # first number is zero
 		ranks = np.array(ranks)/100
 		import matplotlib.pyplot as plt
 		plt.plot(ranks)
@@ -69,6 +69,7 @@ class Evaluation:
 		plt.margins(0)
 		plt.ylim(ymin=0, ymax=1)
 		plt.yticks(np.arange(0, 1.1, 0.1))
+		
 		plt.xscale('log')
 		plt.xlim(xmax=100)
 		plt.grid(True)

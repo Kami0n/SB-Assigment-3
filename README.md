@@ -11,7 +11,12 @@ In this assigment we will be learning about last two steps in biometric recognit
 <br />
 
 2. Trained my own CNN on default training set (Model 1).
-3. Augmented data.
+3. Augmented data. Augmentations:
+    - Brightness
+    - Gammma adjustment (0,5 and 1,5) (MORE)
+    - Horizontal flipping
+    - Blurring with Gaussian filters (filter sizes 3, 5, 9, 13, 21)  (MORE)
+    - Rotations up to 35
 4. Trained my own CNN on augmented training set (Model 2).
 <br />
 
@@ -19,18 +24,22 @@ In this assigment we will be learning about last two steps in biometric recognit
 
 ### Results:
 Trained models:
-| Model  | Rank-1 | Rank-5 |
+| Model  | Rank-1 | Rank-5 | Rank-5 |
 | ------------- | ------------- | ------------- |
 | Pix2Pix | 6,41 % | / |
 | LBP | 4,27 % | / |
 | CNN model 1 | 10,0 % | 24,0 % |
 | CNN model 2 with augmented images | 26,8 % | 46,4 % |
+| CNN model 3 with more augmented images | 32,4 % | 54,8 % |
 
 CNN model 1:
 ![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_1_CMC.png?raw=true)
 
 CNN model 2 with augmented images:
 ![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_2_augmented_CMC.png?raw=true)
+
+CNN model 3 with more augmented images:
+![alt text](https://github.com/Kami0n/SB-Assigment-3/blob/main/results/model_3_augmented_CMC.png?raw=true)
 
 
 

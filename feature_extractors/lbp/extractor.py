@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 class LBP:
-	def __init__(self, num_points=8, radius=2, eps=1e-6, resize=100):
+	def __init__(self, num_points=8, radius=2, eps=1e-7, resize=100):
 		self.num_points = num_points * radius
 		self.radius = radius
 		self.resize = resize
@@ -14,21 +14,20 @@ class LBP:
 	def extract(self, img):
 		img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		img = cv2.resize(img, (self.resize, self.resize))
+		#cv2.imshow("image", img)
 		
 		lbp = feature.local_binary_pattern(img, self.num_points, self.radius, method="uniform")
-		
-		n_bins = int(lbp.max() + 1)
-		hist, _ = np.histogram(lbp, density=True, bins=n_bins, range=(0, n_bins))
-		
-		#hist = hist.astype("float")
-		#hist /= (hist.sum() + self.eps)
-		
-		#cv2.imshow("image", img)
-		#cv2.waitKey(0)
 		#cv2.imshow("lbp", lbp)
 		#cv2.waitKey(0)
 		
+		n_bins = int(lbp.max() + 1)
+		#hist, _ = np.histogram(lbp.ravel(), density=True, bins=n_bins, range=(0, n_bins))
+		hist, _ = np.histogram(lbp.ravel(), bins=np.arange(0, self.num_points + 3), range=(0, self.num_points + 2)) # density=True, 
+		
+		hist = hist.astype("float")
+		hist /= (hist.sum() + self.eps)
 		return hist
+		#return lbp.ravel()
 	
 	def predict(self, img):
 		hist = self.extract(img)

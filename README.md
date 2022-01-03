@@ -12,6 +12,12 @@ In this assigment we will be learning about last two steps in biometric recognit
 
 
 ### Results:
+Trained models:
+| Model  | R1 | R5 |
+| ------------- | ------------- | ------------- |
+| Model 1 | 10.0 % | 24.0 % |
+| Model 2 with augmented images | 26.8 % | 46.4 % |
+
 
 
 

@@ -25,7 +25,7 @@ In this assigment we will be learning about last two steps in biometric recognit
 ### Results:
 Trained models:
 | Model  | Rank-1 | Rank-5 | Rank-5 |
-| ------------- | ------------- | ------------- |
+| ------------- | ------------- | ------------- | ------------- |
 | Pix2Pix | 6,41 % | / | / |
 | LBP | 4,27 % | / | / |
 | CNN model 1 | 10,0 % | 24,0 % | / |

@@ -27,8 +27,6 @@ class Evaluation:
 				
 		return count_correct/count_all*100
 	
-	# Add your own metrics here, such as rank5, (all ranks), CMC plot, ROC, ...
-	
 	def compute_rank1_accuracy(self, Y, y):
 		score = 0
 		for i in range(len(Y)):
@@ -71,6 +69,9 @@ class Evaluation:
 		plt.margins(0)
 		plt.ylim(ymin=0, ymax=1)
 		plt.yticks(np.arange(0, 1.1, 0.1))
+		plt.xscale('log')
+		plt.xlim(xmin=0, xmax=100)
+		plt.grid(True)
 		plt.show()
 	
 	def plotROC(self, x):

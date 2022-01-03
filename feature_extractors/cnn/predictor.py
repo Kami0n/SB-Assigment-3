@@ -7,7 +7,7 @@ from tensorflow.keras import models
 class CNN:
 	def __init__(self, resize=100):
 		self.resize=resize
-		self.model = models.load_model('model_1.h5')
+		self.model = models.load_model('model_2_augmented.h5')
 		# model_1
 		# model_2_augmented
 		

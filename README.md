@@ -7,7 +7,7 @@ In this assigment we will be learning about last two steps in biometric recognit
 
 
 ## What did I do?
-1. Tested LBP feature extraction without success. Can not get beter results (~4 %)  than Pix2Pix (~6 %) 
+1. Tested LBP feature extraction without success. Can not get better results (~4 %) than Pix2Pix (~6 %) 
 <br />
 
 2. Trained my own CNN on default training set (Model 1).
@@ -18,6 +18,7 @@ In this assigment we will be learning about last two steps in biometric recognit
     - Horizontal flipping
     - Blurring with Gaussian filters (filter sizes 3, 5, 9, 13, 21)  (MORE)
     - Rotations from -35° to 35°
+
 Together this brings 15750 samples (750 originals and 21 images).
 5. Trained my own CNN on augmented training set (Model 2).
 6. Trained my own CNN on more augmented training set (Model 3).

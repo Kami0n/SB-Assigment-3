@@ -18,13 +18,13 @@ In this assigment we will be learning about last two steps in biometric recognit
     - Horizontal flipping
     - Blurring with Gaussian filters (filter sizes 3, 5, 9, 13, 21)  (MORE)
     - Rotations from -35° to 35°
-
+<br />
 Together this brings 15750 samples (750 originals and 21 images).
+<br />
 5. Trained my own CNN on augmented training set (Model 2).
 6. Trained my own CNN on more augmented training set (Model 3).
 <br />
-
-5. Tested on test images that I extracted with my own extractor.
+6. Tested on test images that I extracted with my own extractor.
 
 ### Results:
 #### Results on perfectly_detected_ears dataset:

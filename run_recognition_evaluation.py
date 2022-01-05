@@ -98,9 +98,6 @@ class EvaluateAll:
 			print('\nLBP Rank-1 [%] ', round(r1_LBP,2))
 		
 		if cnn:
-			#percent = eval.computeCorrectClasses(class_array,y)
-			#print('\nCNN Percent [%] ', percent)
-			
 			r1_CNN = eval.compute_rank1_accuracy(scores_array, y)
 			print('\nCNN Rank-1 [%] ', r1_CNN)
 			

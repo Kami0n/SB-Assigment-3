@@ -78,21 +78,17 @@ class Evaluation:
 		plt.grid(True)
 		plt.show()
 	
-	def plotROC(self, x):
+	def plotROC(self, predY, trueY):
 		
-		pass
+		far = 0 # false acceptance rate
+		gar = 0 # genuine acceptance rate
+		
+		return 0
 	
 	def calculateAUC(self, x):
 		
 		pass
 	
-	def computeCorrectClasses(self, predY, trueY):
-		correct = 0
-		for indx, item in enumerate(predY):
-			if(trueY[indx] == item):
-				correct += 1
-		percent = round((correct/len(predY))*100, 2)
-		return percent
 	
 	# def compute_rank5(self, Y, y):
 	# 	classes = np.unique(sorted(y))
